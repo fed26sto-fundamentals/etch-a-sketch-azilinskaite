@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    padding: 20px;
+}
+
+#container {
+    height: 600px;
+    width: 600px;
+    border: 2px solid blue;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-columns: repeat(16, 1fr);
+}
+
+.item {
+    background-color: bisque;
+    border: 1px solid black;
+}
