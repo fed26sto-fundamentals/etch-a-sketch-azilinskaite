@@ -11,9 +11,7 @@ function addDiv() {
   newDiv.addEventListener("mouseover", mouseOver);
 }
 
-addDiv();
-
-for (let step = 0; step < 255; step++) {
+for (let step = 0; step < 256; step++) {
   addDiv();
 }
 
@@ -23,15 +21,28 @@ function mouseOver() {
   this.style.backgroundColor = "black";
 };
 
-mouseOver();
+// promt to choose grid size
 
-// promt to choose grid size -- NOT WORKING!
+let btn = document.querySelector("#btn");
+btn.addEventListener("click", function() {
+  let size = prompt("How many cells do you need? (Enter a number between 1-100)");
+  size = parseInt(size);
+  
+  if (size && size > 0 && size <= 100) {
+    createGrid(size);
+  } else {
+    alert("Please enter a valid number between 1 and 100.");
+  }
+}
+);
 
-const button = document.querySelector("button");
+//change grid - NOT WORKING
 
-button.addEventListener('click', function() {
-  const userInput = prompt("How many cells do you need?");
-  console.log(userInput);
-});
+function createGrid () {
+    const container = document.querySelector("#container");
+    container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+}
 
-// adjust grid in javascript
+//starting grid
+createGrid(16);
